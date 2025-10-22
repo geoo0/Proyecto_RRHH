@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorando Tu Personalidad</title>
+    <title>¿Cuál es tu Potencial de Liderazgo?</title>
     <link rel="stylesheet" href="/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        <!-- Sección de presentación -->
         <section id="presentacion" class="section active">
-            <div class="card">
-                <h1>Explorando Tu Personalidad</h1>
-                <div class="intro">
-                    <p>Esta actividad interactiva te permitirá explorar diferentes aspectos de tu personalidad a través de diversos escenarios y preguntas. No es un diagnóstico clínico, sino una herramienta de autoconocimiento.</p>
-                    <p><strong>Propósito:</strong> Identificar patrones de comportamiento, preferencias y tendencias en tu forma de pensar, sentir y actuar.</p>
+            <div class="card" data-aos="zoom-in">
+                <div class="header-animation">
+                    <div class="sparkle">✨</div>
+                    <h1>¿Cuál es tu Potencial de Liderazgo?</h1>
+                    <div class="sparkle">🌟</div>
                 </div>
-                <button id="empezar-btn" class="btn-primary">Comenzar la evaluación</button>
+                <div class="intro">
+                    <p>Descubre tu estilo único de liderazgo y calcula tu porcentaje de potencial directivo. ¡Prepárate para conocerte mejor!</p>
+                    <p><strong>Propósito:</strong> Identificar tus fortalezas naturales como líder y áreas de oportunidad para tu desarrollo profesional.</p>
+                </div>
+                <button id="empezar-btn" class="btn-primary pulse">¡Descúbrelo Ahora!</button>
             </div>
         </section>
+
+        <!-- Sección de instrucciones -->
         <section id="instrucciones" class="section">
-            <div class="card">
+            <div class="card" data-aos="fade-up">
                 <h2>Instrucciones</h2>
                 <ol>
-                    <li>Responde cada pregunta o escenario de manera espontánea, sin pensar demasiado.</li>
-                    <li>Selecciona la opción que mejor describa tu reacción o preferencia natural.</li>
-                    <li>No hay respuestas correctas o incorrectas; todas las opciones son válidas.</li>
-                    <li>Al finalizar, recibirás un perfil con interpretaciones sobre tus respuestas.</li>
+                    <li>Responde cada situación de manera espontánea, como lo harías en la vida real</li>
+                    <li>Selecciona la opción que mejor describa tu reacción natural</li>
+                    <li>No pienses demasiado, confía en tu primera impresión</li>
+                    <li>Al final, recibirás un análisis detallado de tu estilo de liderazgo</li>
                 </ol>
-                <button id="continuar-btn" class="btn-primary">Continuar a la evaluación</button>
+                <button id="continuar-btn" class="btn-primary pulse">¡Empezar Evaluación!</button>
             </div>
         </section>
+
+        <!-- Sección de evaluación interactiva -->
         <section id="evaluacion" class="section">
-            <div class="card">
-                <div class="progress-bar">
-                    <div class="progress" id="progreso"></div>
+            <div class="card" data-aos="flip-up">
+                <div class="progress-container">
+                    <div class="progress-text">Progreso: <span id="progreso-texto">0%</span></div>
+                    <div class="progress-bar">
+                        <div class="progress" id="progreso"></div>
+                    </div>
                 </div>
                 <h2 id="pregunta-titulo"></h2>
                 <div id="contenido-interactivo"></div>
@@ -43,25 +56,44 @@
                 </div>
             </div>
         </section>
+
+        <!-- Sección de resultados -->
         <section id="resultados" class="section">
-            <div class="card">
-                <h2>Tu Perfil de Personalidad</h2>
+            <div class="card" data-aos="zoom-in">
+                <div class="result-header">
+                    <div class="trophy">🏆</div>
+                    <h2>¡Tu Resultado de Liderazgo!</h2>
+                    <div class="trophy">🎯</div>
+                </div>
+                <div class="score-container">
+                    <div class="score-circle">
+                        <div class="score-text" id="porcentaje-liderazgo">0%</div>
+                        <div class="score-label">Potencial de Liderazgo</div>
+                    </div>
+                </div>
                 <div id="resultados-contenido"></div>
-                <button id="reiniciar-btn" class="btn-primary">Realizar otra evaluación</button>
+                <button id="reiniciar-btn" class="btn-primary pulse">Realizar Otra Evaluación</button>
             </div>
         </section>
     </div>
+
+    <!-- Footer Mejorado -->
     <footer class="footer">
         <div class="footer-content">
-            <img src="/umg.png" alt="Logo Universidad Mariano Gálvez" class="university-logo">
-            <div class="university-info">
-                <div class="university-name">Universidad Mariano Gálvez de Guatemala</div>
-                <div class="degree">Licenciatura en Psicología Industrial</div>
-                <div class="creator">Created by: Jennifer Melissa García Velásquez</div>
+            <div class="footer-left">
+                <img src="/logo.png" alt="Logo Universidad Mariano Gálvez" class="university-logo">
+            </div>
+            <div class="footer-right">
+                <div class="university-info">
+                    <div class="university-name">Universidad Mariano Gálvez de Guatemala</div>
+                    <div class="degree">Licenciatura en Psicología Industrial</div>
+                    <div class="creator">💖 Creado por: Jennifer Melissa García Velásquez</div>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/script.js"></script>
 </body>
 </html>
