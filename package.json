@@ -4,7 +4,7 @@
   "description": "Actividad interactiva para evaluar aspectos de la personalidad",
   "main": "index.html",
   "scripts": {
-    "start": "serve",
+    "start": "npx serve -s",
     "build": "echo 'No build step required'"
   },
   "dependencies": {
