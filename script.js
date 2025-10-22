@@ -1,137 +1,164 @@
+// Debug: Verificar que el script se cargue
+console.log('Script.js cargado correctamente');
+
 // Variables globales
 let preguntaActual = 0;
 let respuestas = {};
 const totalPreguntas = 10;
 
-// Elementos de evaluación interactiva
+// Elementos de evaluación interactiva - TEMA LIDERAZGO
 const elementosInteractivos = [
     {
-        tipo: "pregunta",
-        titulo: "Preferencia social",
-        pregunta: "En una fiesta, ¿cómo sueles comportarte?",
+        tipo: "escenario",
+        titulo: "Toma de decisiones en equipo 🎯",
+        escenario: "Tu equipo no puede ponerse de acuerdo sobre un proyecto importante con fecha límite cercana. ¿Qué haces?",
         opciones: [
-            "Me relaciono con muchas personas y disfruto siendo el centro de atención",
-            "Prefiero conversaciones profundas con pocas personas",
-            "Observo desde un rincón y solo me uno cuando me siento cómodo",
-            "Me cansa estar en eventos sociales y prefiero actividades solitarias"
+            "Tomo la decisión final basándome en mi experiencia y análisis",
+            "Facilito una discusión estructurada para llegar a un consenso",
+            "Pido más tiempo para investigar todas las opciones disponibles",
+            "Divido el equipo en grupos para que exploren diferentes enfoques"
         ],
-        categoria: "Extraversión/Introversión"
+        categoria: "Estilo de toma de decisiones"
     },
     {
         tipo: "pregunta",
-        titulo: "Toma de decisiones",
-        pregunta: "Al tomar una decisión importante, ¿qué priorizas?",
+        titulo: "Manejo de conflictos 💥",
+        pregunta: "Cuando surge un conflicto entre miembros de tu equipo, tu enfoque es:",
         opciones: [
-            "La lógica y los hechos objetivos",
-            "Los sentimientos y el impacto en las personas",
-            "Un equilibrio entre razón y emoción",
-            "La intuición y las corazonadas"
+            "Intervenir inmediatamente y mediar directamente",
+            "Dar espacio para que resuelvan el conflicto por sí mismos",
+            "Organizar una reunión formal para abordar el problema",
+            "Reasignar tareas para minimizar la fricción"
         ],
-        categoria: "Pensamiento/Sentimiento"
+        categoria: "Resolución de conflictos"
     },
     {
         tipo: "escenario",
-        titulo: "Resolución de problemas",
-        escenario: "Te enfrentas a un problema complejo en el trabajo. ¿Cuál es tu enfoque?",
+        titulo: "Motivación del equipo ✨",
+        escenario: "Tu equipo está desmotivado después de un revés importante. ¿Cómo respondes?",
         opciones: [
-            "Analizo todos los datos disponibles antes de actuar",
-            "Sigo mi intuición y pruebo diferentes soluciones",
-            "Consulto con colegas para obtener diferentes perspectivas",
-            "Desgloso el problema en partes más pequeñas y manejables"
+            "Comparto una visión inspiradora del futuro y nuestros objetivos",
+            "Reconozco el esfuerzo y organizo una actividad para levantar el ánimo",
+            "Analizo lo que salió mal y creo un plan de acción mejorado",
+            "Me reúno individualmente con cada miembro para entender sus preocupaciones"
         ],
-        categoria: "Percepción/Juicio"
+        categoria: "Habilidades de motivación"
     },
     {
         tipo: "pregunta",
-        titulo: "Organización personal",
-        pregunta: "¿Cómo describes tu espacio de trabajo o área de estudio?",
+        titulo: "Comunicación efectiva 🗣️",
+        pregunta: "¿Cómo prefieres comunicar información importante a tu equipo?",
         opciones: [
-            "Muy organizado, con todo en su lugar específico",
-            "Organizado de forma flexible, sé dónde está todo",
-            "Algo desordenado pero funcional para mí",
-            "Caótico, pero encuentro lo que necesito cuando lo necesito"
+            "Reuniones cara a cara donde puedo leer el lenguaje corporal",
+            "Correos electrónicos detallados con documentación completa",
+            "Presentaciones visuales con datos y gráficos claros",
+            "Comunicación individual adaptada a cada persona"
         ],
-        categoria: "Estructura/Flexibilidad"
+        categoria: "Estilo de comunicación"
     },
     {
         tipo: "escenario",
-        titulo: "Manejo del estrés",
-        escenario: "Cuando te sientes abrumado o estresado, ¿qué sueles hacer?",
+        titulo: "Delegación de responsabilidades 📋",
+        escenario: "Tienes un proyecto complejo que requiere múltiples habilidades. ¿Cómo delegas?",
         opciones: [
-            "Busco actividades solitarias para recargar energías",
-            "Hablo con amigos o familiares sobre lo que me preocupa",
-            "Me sumerjo en el trabajo o proyectos para distraerme",
-            "Practico ejercicio o meditación para relajarme"
+            "Asigno tareas específicas con instrucciones detalladas",
+            "Presento el objetivo general y dejo que el equipo decida cómo organizarse",
+            "Emparejo a personas con diferentes fortalezas para que colaboren",
+            "Permito que los miembros elijan las tareas que más les interesan"
         ],
-        categoria: "Mecanismos de afrontamiento"
+        categoria: "Capacidad de delegación"
     },
     {
         tipo: "pregunta",
-        titulo: "Estilo de comunicación",
-        pregunta: "En una discusión, ¿cómo sueles expresar tus puntos de vista?",
+        titulo: "Adaptabilidad al cambio 🔄",
+        pregunta: "Cuando las circunstancias cambian repentinamente, tu primera reacción es:",
         opciones: [
-            "De forma directa y clara, sin rodeos",
-            "Considerando cuidadosamente cómo mis palabras afectarán a los demás",
-            "Con ejemplos y metáforas para ilustrar mi punto",
-            "Escuchando primero y luego compartiendo mi perspectiva"
+            "Evaluar rápidamente la nueva situación y ajustar la estrategia",
+            "Consultar con el equipo antes de tomar cualquier decisión",
+            "Mantener la calma y asegurarme de que todos entiendan los cambios",
+            "Proteger al equipo del estrés manejando los cambios yo mismo"
         ],
-        categoria: "Comunicación"
+        categoria: "Flexibilidad estratégica"
     },
     {
         tipo: "escenario",
-        titulo: "Trabajo en equipo",
-        escenario: "En un proyecto grupal, ¿qué rol sueles adoptar?",
+        titulo: "Desarrollo del talento 🌱",
+        escenario: "Un miembro del equipo muestra potencial pero comete errores frecuentes. ¿Tu enfoque?",
         opciones: [
-            "El organizador que establece plazos y estructura",
-            "El creativo que genera ideas innovadoras",
-            "El mediador que resuelve conflictos",
-            "El ejecutor que se enfoca en completar las tareas"
+            "Proporcionar mentoría constante y oportunidades de crecimiento",
+            "Dar autonomía para que aprenda de sus propios errores",
+            "Asignar tareas más simples hasta que gane más experiencia",
+            "Emparejarlo con un colega más experimentado"
         ],
-        categoria: "Roles grupales"
+        categoria: "Desarrollo de equipo"
     },
     {
         tipo: "pregunta",
-        titulo: "Enfoque temporal",
-        pregunta: "¿En qué período temporal sueles enfocar tu atención?",
+        titulo: "Manejo del estrés 🏃‍♀️",
+        pregunta: "En situaciones de alta presión, tu estilo de liderazgo tiende a ser:",
         opciones: [
-            "En el presente, disfrutando el momento actual",
-            "En el futuro, planificando y anticipando",
-            "En el pasado, aprendiendo de experiencias anteriores",
-            "En un equilibrio entre pasado, presente y futuro"
+            "Focalizado y decisivo, priorizando la acción rápida",
+            "Calmado y centrado, manteniendo la estabilidad del equipo",
+            "Colaborativo, distribuyendo la presión entre todos",
+            "Analítico, buscando la solución óptima sin dejarme llevar por el pánico"
         ],
-        categoria: "Orientación temporal"
+        categoria: "Liderazgo bajo presión"
     },
     {
         tipo: "escenario",
-        titulo: "Tolerancia a la ambigüedad",
-        escenario: "Te asignan una tarea con instrucciones poco claras. ¿Cómo reaccionas?",
+        titulo: "Innovación y creatividad 💡",
+        escenario: "Necesitas fomentar ideas innovadoras en tu equipo. ¿Qué estrategia usas?",
         opciones: [
-            "Me siento incómodo y busco aclaraciones inmediatamente",
-            "Disfruto la libertad de interpretar la tarea a mi manera",
-            "Investigo por mi cuenta para entender mejor lo que se espera",
-            "Empiezo a trabajar y ajusto según sea necesario"
+            "Organizar sesiones de lluvia de ideas sin críticas",
+            "Proponer desafíos con recompensas por ideas creativas",
+            "Crear un ambiente donde el fracaso sea visto como aprendizaje",
+            "Traer ejemplos externos para inspirar nuevas perspectivas"
         ],
-        categoria: "Tolerancia a la incertidumbre"
+        categoria: "Fomento de la innovación"
     },
     {
         tipo: "pregunta",
-        titulo: "Motivación principal",
-        pregunta: "¿Qué te impulsa principalmente en tu vida profesional/personal?",
+        titulo: "Feedback y reconocimiento 🌟",
+        pregunta: "¿Cómo manejas el reconocimiento del buen trabajo en tu equipo?",
         opciones: [
-            "Lograr el éxito y el reconocimiento",
-            "Ayudar a otros y contribuir al bien común",
-            "Aprender y desarrollarme continuamente",
-            "Encontrar equilibrio y satisfacción personal"
+            "Reconocimiento público inmediato para reforzar comportamientos positivos",
+            "Feedback personalizado y privado basado en objetivos específicos",
+            "Sistema estructurado de recompensas y reconocimientos",
+            "Celebraciones grupales de los éxitos del equipo"
         ],
-        categoria: "Motivación"
+        categoria: "Gestión del desempeño"
     }
 ];
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM completamente cargado');
+    
+    // Inicializar AOS (Animate On Scroll)
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+    
     // Configurar event listeners
-    document.getElementById('empezar-btn').addEventListener('click', mostrarInstrucciones);
-    document.getElementById('continuar-btn').addEventListener('click', iniciarEvaluacion);
+    const empezarBtn = document.getElementById('empezar-btn');
+    const continuarBtn = document.getElementById('continuar-btn');
+    
+    if (empezarBtn) {
+        console.log('Botón empezar encontrado');
+        empezarBtn.addEventListener('click', mostrarInstrucciones);
+    } else {
+        console.error('Botón empezar NO encontrado');
+    }
+    
+    if (continuarBtn) {
+        console.log('Botón continuar encontrado');
+        continuarBtn.addEventListener('click', iniciarEvaluacion);
+    } else {
+        console.error('Botón continuar NO encontrado');
+    }
+    
     document.getElementById('siguiente-btn').addEventListener('click', siguientePregunta);
     document.getElementById('anterior-btn').addEventListener('click', anteriorPregunta);
     document.getElementById('reiniciar-btn').addEventListener('click', reiniciarEvaluacion);
@@ -155,9 +182,10 @@ function mostrarPregunta(numero) {
     const tituloPregunta = document.getElementById('pregunta-titulo');
     const contenidoInteractivo = document.getElementById('contenido-interactivo');
     
-    // Actualizar barra de progreso
-    const progreso = ((numero + 1) / totalPreguntas) * 100;
-    document.getElementById('progreso').style.width = `${progreso}%`;
+    // Actualizar barra de progreso y texto
+    const progresoPorcentaje = ((numero + 1) / totalPreguntas) * 100;
+    document.getElementById('progreso').style.width = `${progresoPorcentaje}%`;
+    document.getElementById('progreso-texto').textContent = `${Math.round(progresoPorcentaje)}%`;
     
     // Mostrar título
     tituloPregunta.textContent = `${numero + 1}. ${elemento.titulo}`;
@@ -208,7 +236,7 @@ function mostrarPregunta(numero) {
     
     // Actualizar estado de botones de navegación
     document.getElementById('anterior-btn').style.display = numero === 0 ? 'none' : 'block';
-    document.getElementById('siguiente-btn').textContent = numero === totalPreguntas - 1 ? 'Ver resultados' : 'Siguiente';
+    document.getElementById('siguiente-btn').textContent = numero === totalPreguntas - 1 ? 'Ver Resultados 🎉' : 'Siguiente ➡️';
 }
 
 function siguientePregunta() {
@@ -230,30 +258,53 @@ function mostrarResultados() {
     document.getElementById('resultados').classList.add('active');
     
     // Calcular resultados
-    const resultados = calcularResultados();
+    const resultados = calcularResultadosLiderazgo();
     
-    // Mostrar resultados
+    // Actualizar el círculo de porcentaje
+    const porcentajeElement = document.getElementById('porcentaje-liderazgo');
+    const scoreCircle = document.querySelector('.score-circle');
+    
+    // Animación del porcentaje
+    let porcentaje = 0;
+    const incremento = resultados.porcentajeTotal / 100;
+    const timer = setInterval(() => {
+        porcentaje += incremento;
+        if (porcentaje >= resultados.porcentajeTotal) {
+            porcentaje = resultados.porcentajeTotal;
+            clearInterval(timer);
+        }
+        porcentajeElement.textContent = `${Math.round(porcentaje)}%`;
+        scoreCircle.style.background = `conic-gradient(#ff6b6b ${porcentaje}%, #e9ecef ${porcentaje}%)`;
+    }, 20);
+    
+    // Mostrar resultados detallados
     const resultadosContenido = document.getElementById('resultados-contenido');
     resultadosContenido.innerHTML = `
         <div class="resultado-categoria">
-            <h3>Perfil General</h3>
-            <p>${resultados.perfilGeneral}</p>
+            <h3>🎯 Tu Estilo de Liderazgo Principal</h3>
+            <p>${resultados.estiloPrincipal}</p>
         </div>
-        ${resultados.categorias.map(categoria => `
+        ${resultados.fortalezas.map(fortaleza => `
             <div class="resultado-categoria">
-                <h3>${categoria.nombre}</h3>
-                <p>${categoria.descripcion}</p>
+                <h3>💪 ${fortaleza.nombre}</h3>
+                <p>${fortaleza.descripcion}</p>
+            </div>
+        `).join('')}
+        ${resultados.areasDesarrollo.map(area => `
+            <div class="resultado-categoria">
+                <h3>🌱 ${area.nombre}</h3>
+                <p>${area.descripcion}</p>
             </div>
         `).join('')}
         <div class="resultado-categoria">
-            <h3>Recomendaciones</h3>
+            <h3>🚀 Recomendaciones para Desarrollar tu Liderazgo</h3>
             <p>${resultados.recomendaciones}</p>
         </div>
     `;
 }
 
-function calcularResultados() {
-    // Agrupar respuestas por categoría
+function calcularResultadosLiderazgo() {
+    // Calcular puntuaciones por categoría
     const categorias = {};
     
     elementosInteractivos.forEach((elemento, index) => {
@@ -261,159 +312,74 @@ function calcularResultados() {
         if (!categorias[categoria]) {
             categorias[categoria] = [];
         }
-        categorias[categoria].push(respuestas[index]);
+        if (respuestas[index] !== undefined) {
+            categorias[categoria].push(respuestas[index]);
+        }
     });
     
-    // Generar descripciones basadas en las respuestas
-    const resultadosCategorias = [];
+    // Calcular porcentaje total (simplificado)
+    const totalRespuestas = Object.keys(respuestas).length;
+    const puntuacionMaxima = totalRespuestas * 3; // Asumiendo que 3 es la mejor puntuación
+    let puntuacionTotal = 0;
     
-    // Análisis de Extraversión/Introversión
-    if (categorias["Extraversión/Introversión"]) {
-        const respuestasCategoria = categorias["Extraversión/Introversión"];
-        const promedio = respuestasCategoria.reduce((a, b) => a + b, 0) / respuestasCategoria.length;
-        
-        let descripcion;
-        if (promedio < 1) {
-            descripcion = "Tienes una tendencia marcada hacia la extraversión. Disfrutas de la interacción social y te energizas en entornos grupales. Tu estilo comunicativo es abierto y expresivo.";
-        } else if (promedio < 2) {
-            descripcion = "Eres una persona ambivertida, con un equilibrio entre características de extraversión e introversión. Te adaptas bien a diferentes situaciones sociales, aunque también valoras tu tiempo a solas.";
-        } else {
-            descripcion = "Presentas tendencias introvertidas. Prefieres entornos tranquilos y reflexivos, y te energizas en momentos de soledad. Tu estilo comunicativo es más reservado y selectivo.";
-        }
-        
-        resultadosCategorias.push({
-            nombre: "Extraversión/Introversión",
-            descripcion: descripcion
-        });
-    }
+    Object.values(respuestas).forEach(respuesta => {
+        // Invertir la puntuación para que respuestas más altas sean mejores
+        puntuacionTotal += (3 - respuesta);
+    });
     
-    // Análisis de Pensamiento/Sentimiento
-    if (categorias["Pensamiento/Sentimiento"]) {
-        const respuestasCategoria = categorias["Pensamiento/Sentimiento"];
-        const promedio = respuestasCategoria.reduce((a, b) => a + b, 0) / respuestasCategoria.length;
-        
-        let descripcion;
-        if (promedio < 1.5) {
-            descripcion = "Tu estilo de toma de decisiones se inclina hacia el pensamiento lógico. Priorizas la objetividad, la coherencia y el análisis racional al evaluar situaciones.";
-        } else {
-            descripcion = "Tu estilo de toma de decisiones se basa principalmente en valores personales y consideraciones emocionales. Eres empático y tomas en cuenta el impacto en las personas.";
-        }
-        
-        resultadosCategorias.push({
-            nombre: "Estilo de Toma de Decisiones",
-            descripcion: descripcion
-        });
-    }
+    const porcentajeTotal = Math.round((puntuacionTotal / puntuacionMaxima) * 100);
     
-    // Análisis de Percepción/Juicio
-    if (categorias["Percepción/Juicio"]) {
-        const respuestasCategoria = categorias["Percepción/Juicio"];
-        const promedio = respuestasCategoria.reduce((a, b) => a + b, 0) / respuestasCategoria.length;
-        
-        let descripcion;
-        if (promedio < 1.5) {
-            descripcion = "Tienes un enfoque estructurado para resolver problemas. Prefieres planes definidos y métodos organizados para abordar desafíos.";
-        } else {
-            descripcion = "Tu enfoque para resolver problemas es flexible y adaptable. Eres espontáneo y te sientes cómodo improvisando según evoluciona la situación.";
-        }
-        
-        resultadosCategorias.push({
-            nombre: "Enfoque de Resolución de Problemas",
-            descripcion: descripcion
-        });
-    }
-    
-    // Análisis de Estructura/Flexibilidad
-    if (categorias["Estructura/Flexibilidad"]) {
-        const respuestasCategoria = categorias["Estructura/Flexibilidad"];
-        const promedio = respuestasCategoria.reduce((a, b) => a + b, 0) / respuestasCategoria.length;
-        
-        let descripcion;
-        if (promedio < 1.5) {
-            descripcion = "Valoras la organización y el orden en tu entorno. Te sientes más cómodo cuando las cosas están planificadas y estructuradas.";
-        } else {
-            descripcion = "Eres flexible y te adaptas fácilmente a cambios. No necesitas un alto grado de estructura para sentirte cómodo y productivo.";
-        }
-        
-        resultadosCategorias.push({
-            nombre: "Preferencia por Estructura",
-            descripcion: descripcion
-        });
-    }
-    
-    // Análisis de Comunicación
-    if (categorias["Comunicación"]) {
-        const respuestasCategoria = categorias["Comunicación"];
-        const promedio = respuestasCategoria.reduce((a, b) => a + b, 0) / respuestasCategoria.length;
-        
-        let descripcion;
-        if (promedio < 1) {
-            descripcion = "Tu estilo comunicativo es directo y asertivo. Expresas tus ideas de manera clara y sin rodeos.";
-        } else if (promedio < 2) {
-            descripcion = "Eres un comunicador empático que considera cuidadosamente el impacto de sus palabras en los demás.";
-        } else if (promedio < 3) {
-            descripcion = "Utilizas un estilo comunicativo creativo, empleando metáforas y ejemplos para ilustrar tus puntos.";
-        } else {
-            descripcion = "Eres un comunicador reflexivo que prioriza escuchar antes de expresar tus propias ideas.";
-        }
-        
-        resultadosCategorias.push({
-            nombre: "Estilo de Comunicación",
-            descripcion: descripcion
-        });
-    }
-    
-    // Perfil general
-    let perfilGeneral = "Basado en tus respuestas, tu perfil sugiere una personalidad ";
-    
-    // Determinar características predominantes
-    const caracteristicas = [];
-    
-    if (categorias["Extraversión/Introversión"] && 
-        categorias["Extraversión/Introversión"].reduce((a, b) => a + b, 0) / categorias["Extraversión/Introversión"].length < 1.5) {
-        caracteristicas.push("sociable");
+    // Determinar estilo de liderazgo
+    let estiloPrincipal = "";
+    if (porcentajeTotal >= 80) {
+        estiloPrincipal = "Eres un Líder Transformacional 🦸‍♀️ - Inspiras a tu equipo con una visión clara y fomentas la innovación y el crecimiento personal.";
+    } else if (porcentajeTotal >= 60) {
+        estiloPrincipal = "Tienes un Estilo de Liderazgo Democrático 🤝 - Valoras la participación del equipo y buscas consenso en las decisiones importantes.";
+    } else if (porcentajeTotal >= 40) {
+        estiloPrincipal = "Tu estilo es de Liderazgo Coaching 🧠 - Te enfocas en desarrollar el potencial de cada miembro del equipo mediante mentoría y apoyo.";
     } else {
-        caracteristicas.push("reflexiva");
+        estiloPrincipal = "Tienes características de Liderazgo Situacional 🔄 - Adaptas tu estilo según las necesidades específicas del equipo y la situación.";
     }
     
-    if (categorias["Pensamiento/Sentimiento"] && 
-        categorias["Pensamiento/Sentimiento"].reduce((a, b) => a + b, 0) / categorias["Pensamiento/Sentimiento"].length < 1.5) {
-        caracteristicas.push("analítica");
-    } else {
-        caracteristicas.push("empática");
-    }
+    // Fortalezas identificadas
+    const fortalezas = [
+        {
+            nombre: "Comunicación Efectiva",
+            descripcion: "Tienes habilidad para transmitir ideas claramente y escuchar activamente a los miembros de tu equipo."
+        },
+        {
+            nombre: "Toma de Decisiones",
+            descripcion: "Eres capaz de analizar situaciones complejas y tomar decisiones informadas bajo presión."
+        }
+    ];
     
-    if (categorias["Estructura/Flexibilidad"] && 
-        categorias["Estructura/Flexibilidad"].reduce((a, b) => a + b, 0) / categorias["Estructura/Flexibilidad"].length < 1.5) {
-        caracteristicas.push("organizada");
-    } else {
-        caracteristicas.push("adaptable");
-    }
+    // Áreas de desarrollo
+    const areasDesarrollo = [
+        {
+            nombre: "Delegación Estratégica",
+            descripcion: "Podrías mejorar distribuyendo responsabilidades de manera más efectiva para empoderar a tu equipo."
+        },
+        {
+            nombre: "Manejo de Conflictos",
+            descripcion: "Desarrollar estrategias más proactivas para resolver desacuerdos fortalecería la dinámica del equipo."
+        }
+    ];
     
-    perfilGeneral += caracteristicas.join(", ") + ". ";
-    
-    perfilGeneral += "Este perfil refleja tus tendencias naturales en diferentes situaciones, aunque es importante recordar que la personalidad es dinámica y puede variar según el contexto.";
-    
-    // Recomendaciones
+    // Recomendaciones personalizadas
     let recomendaciones = "";
-    
-    if (caracteristicas.includes("sociable") && caracteristicas.includes("organizada")) {
-        recomendaciones = "Podrías aprovechar tus habilidades organizativas y sociales en roles de liderazgo o coordinación. Considera buscar oportunidades donde puedas estructurar proyectos mientras interactúas con diferentes personas.";
-    } else if (caracteristicas.includes("reflexiva") && caracteristicas.includes("analítica")) {
-        recomendaciones = "Tu combinación de reflexión y análisis podría ser valiosa en roles que requieran investigación, planificación estratégica o resolución de problemas complejos. Busca entornos que valoren la profundidad de pensamiento.";
-    } else if (caracteristicas.includes("sociable") && caracteristicas.includes("empática")) {
-        recomendaciones = "Tus habilidades sociales y empatía son ideales para roles que impliquen trabajo con personas, como enseñanza, atención al cliente o trabajo comunitario. Considera desarrollar aún más tus habilidades de comunicación emocional.";
-    } else if (caracteristicas.includes("reflexiva") && caracteristicas.includes("adaptable")) {
-        recomendaciones = "Tu capacidad para reflexionar profundamente mientras mantienes flexibilidad es valiosa en entornos dinámicos. Podrías destacar en roles que requieran adaptación constante junto con análisis cuidadoso.";
+    if (porcentajeTotal >= 70) {
+        recomendaciones = "Continúa desarrollando tu intuición para el talento y considera mentoría para otros líderes emergentes. Tu siguiente paso podría ser liderar iniciativas de mayor escala.";
+    } else if (porcentajeTotal >= 50) {
+        recomendaciones = "Enfócate en construir relaciones más sólidas con tu equipo y practica la delegación estratégica. Participa en talleres de liderazgo situacional.";
     } else {
-        recomendaciones = "Tu combinación única de características te permite abordar situaciones desde múltiples perspectivas. Busca oportunidades que te permitan utilizar tus diversas habilidades y continúa desarrollando aquellas áreas que te interesen.";
+        recomendaciones = "Comienza observando a líderes que admires y practica habilidades específicas en proyectos pequeños. La autoconciencia es tu mayor aliada en este momento.";
     }
-    
-    recomendaciones += " Recuerda que este es solo un punto de partida para el autoconocimiento, y tu personalidad continuará evolucionando a lo largo de tu vida.";
     
     return {
-        perfilGeneral: perfilGeneral,
-        categorias: resultadosCategorias,
+        porcentajeTotal: porcentajeTotal,
+        estiloPrincipal: estiloPrincipal,
+        fortalezas: fortalezas,
+        areasDesarrollo: areasDesarrollo,
         recomendaciones: recomendaciones
     };
 }
@@ -423,4 +389,7 @@ function reiniciarEvaluacion() {
     respuestas = {};
     document.getElementById('resultados').classList.remove('active');
     document.getElementById('presentacion').classList.add('active');
+    
+    // Reiniciar animaciones
+    AOS.refresh();
 }
