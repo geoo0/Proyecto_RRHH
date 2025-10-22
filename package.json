@@ -2,13 +2,13 @@
   "name": "evaluacion-personalidad",
   "version": "1.0.0",
   "description": "Actividad interactiva para evaluar aspectos de la personalidad",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "start": "npx serve -s",
+    "start": "node server.js",
     "build": "echo 'No build step required'"
   },
   "dependencies": {
-    "serve": "^14.2.0"
+    "express": "^4.18.2"
   },
   "keywords": ["psicologia", "personalidad", "evaluacion", "interactivo"],
   "author": "Tu nombre",
