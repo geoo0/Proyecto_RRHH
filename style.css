@@ -365,14 +365,6 @@ li {
 .university-logo {
     width: 60px;
     height: 60px;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.university-logo:hover {
-    transform: scale(1.1) rotate(5deg);
 }
 
 .footer-right {
