@@ -1,0 +1,16 @@
+{
+  "name": "evaluacion-personalidad",
+  "version": "1.0.0",
+  "description": "Actividad interactiva para evaluar aspectos de la personalidad",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
+  "keywords": ["psicologia", "personalidad", "evaluacion", "interactivo"],
+  "author": "Tu nombre",
+  "license": "MIT"
+}

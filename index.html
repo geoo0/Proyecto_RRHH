@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando Tu Personalidad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sección de presentación -->
+        <section id="presentacion" class="section active">
+            <div class="card">
+                <h1>Explorando Tu Personalidad</h1>
+                <div class="intro">
+                    <p>Esta actividad interactiva te permitirá explorar diferentes aspectos de tu personalidad a través de diversos escenarios y preguntas. No es un diagnóstico clínico, sino una herramienta de autoconocimiento.</p>
+                    <p><strong>Propósito:</strong> Identificar patrones de comportamiento, preferencias y tendencias en tu forma de pensar, sentir y actuar.</p>
+                </div>
+                <button id="empezar-btn" class="btn-primary">Comenzar la evaluación</button>
+            </div>
+        </section>
+
+        <!-- Sección de instrucciones -->
+        <section id="instrucciones" class="section">
+            <div class="card">
+                <h2>Instrucciones</h2>
+                <ol>
+                    <li>Responde cada pregunta o escenario de manera espontánea, sin pensar demasiado.</li>
+                    <li>Selecciona la opción que mejor describa tu reacción o preferencia natural.</li>
+                    <li>No hay respuestas correctas o incorrectas; todas las opciones son válidas.</li>
+                    <li>Al finalizar, recibirás un perfil con interpretaciones sobre tus respuestas.</li>
+                </ol>
+                <button id="continuar-btn" class="btn-primary">Continuar a la evaluación</button>
+            </div>
+        </section>
+
+        <!-- Sección de evaluación interactiva -->
+        <section id="evaluacion" class="section">
+            <div class="card">
+                <div class="progress-bar">
+                    <div class="progress" id="progreso"></div>
+                </div>
+                <h2 id="pregunta-titulo"></h2>
+                <div id="contenido-interactivo"></div>
+                <div class="nav-buttons">
+                    <button id="anterior-btn" class="btn-secondary">Anterior</button>
+                    <button id="siguiente-btn" class="btn-primary">Siguiente</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de resultados -->
+        <section id="resultados" class="section">
+            <div class="card">
+                <h2>Tu Perfil de Personalidad</h2>
+                <div id="resultados-contenido"></div>
+                <button id="reiniciar-btn" class="btn-primary">Realizar otra evaluación</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
