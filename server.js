@@ -21,6 +21,11 @@ app.get('/style.css', (req, res) => {
     res.sendFile(path.join(__dirname, 'style.css'));
 });
 
+app.get('/logo.png', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'logo.png'));
+});
+
 // Ruta de fallback para SPA
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
